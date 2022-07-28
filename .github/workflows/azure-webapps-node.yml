@@ -45,6 +45,7 @@ jobs:
 
     - name: npm install, build, and test
       run: |
+        yarn global add pm2
         yarn install
         yarn build
 

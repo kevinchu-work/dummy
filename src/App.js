@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+
 import axios from "axios";
 import "./styles.css";
+import Tester from "./Tester";
 
 const api = axios.create({
   baseURL: "https://microservice-identitymanagement.azurewebsites.net"
@@ -12,20 +14,27 @@ const data = {
 };
 
 export default function App() {
-  const [consoleLog, setConsoleLog] = useState("");
+  // const [consoleLog, setConsoleLog] = useState("");
 
-  useEffect(() => {
-    api
-      .post("/api/identity/token", data)
-      .then((res) => {
-        console.log(`Status: ${res.status}`, res.data);
-        setConsoleLog("OK");
-      })
-      .catch((err) => {
-        setConsoleLog("err");
-        console.error(err.response.message, err.response.headers);
-      });
-  }, [data]);
+  // useEffect(() => {
+  //   api
+  //     .post("/api/identity/token", data)
+  //     .then((res) => {
+  //       console.log(`Status: ${res.status}`, res.data);
+  //       setConsoleLog("OK");
+  //     })
+  //     .catch((err) => {
+  //       setConsoleLog("err");
+  //       console.error(err.response.message, err.response.headers);
+  //     });
+  // }, [data]);
 
-  return <div className="App">{consoleLog}</div>;
+  // return <div className="App">{consoleLog}</div>;
+
+  return (
+    <div className="App">
+      <Tester />
+    </div>
+  );
+
 }
